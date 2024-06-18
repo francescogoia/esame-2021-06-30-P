@@ -45,12 +45,13 @@ class Model:
 
         vicini = self._grafo.neighbors(partenza)
         for v in vicini:
-            if self.filtroArchi(partenza, v, parziale):
-                peso = self._grafo[partenza][v]["weight"]
+            peso = self._grafo[partenza][v]["weight"]
+            if self.filtroNodi(v, parziale):
+
                 parziale.append((partenza, v, peso))
                 self._ricorsione(v, parziale)
                 parziale.pop()
-        return
+
 
     def filtroArchi(self, u, v, parziale):
         for e in parziale:
@@ -63,3 +64,9 @@ class Model:
         for e in parziale:
             pesoTot += e[2]
         return pesoTot
+
+    def filtroNodi(self, n, parziale):
+        for e in parziale:
+            if e[0] == n or e[1] == n:
+                return False
+        return True

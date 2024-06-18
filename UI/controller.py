@@ -44,8 +44,9 @@ class Controller:
         cammino, peso_cammino = self._model.handlePath(self._choiceLocation)
         self._view.txt_result.controls.clear()
         self._view.txt_result.controls.append(ft.Text(f"Cammino che parte da {self._choiceLocation} con peso: {peso_cammino}"))
+        self._view.txt_result.controls.append(ft.Text(f"{self._choiceLocation}"))
         for c in cammino:
-            self._view.txt_result.controls.append(ft.Text(f"{c}"))
+            self._view.txt_result.controls.append(ft.Text(f"{c[1]}"))
         self._view.update_page()
 
 

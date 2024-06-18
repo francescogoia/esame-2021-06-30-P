@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee5c9205-43a4-4a44-9646-894ee1fc565a" name="Changes" comment="capire 1E e fare ricorsione">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ee5c9205-43a4-4a44-9646-894ee1fc565a" name="Changes" comment="correggere ricorsione">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/DAO.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/DAO.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
@@ -127,11 +124,20 @@
       <option name="project" value="LOCAL" />
       <updated>1718665214066</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="correggere ricorsione">
+      <option name="closed" value="true" />
+      <created>1718697495018</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718697495018</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="capire 1E e fare ricorsione" />
-    <option name="LAST_COMMIT_MESSAGE" value="capire 1E e fare ricorsione" />
+    <MESSAGE value="correggere ricorsione" />
+    <option name="LAST_COMMIT_MESSAGE" value="correggere ricorsione" />
   </component>
 </project>
