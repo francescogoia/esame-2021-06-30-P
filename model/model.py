@@ -20,19 +20,46 @@ class Model:
             peso = a[2]
             self._grafo.add_edge(u, v, weight=peso)
 
-
-
     def getGraphDetails(self):
         return len(self._grafo.nodes), len(self._grafo.edges)
 
-    def getConnesse(self, localizzazione):
-        connessa = nx.node_connected_component(self._grafo, localizzazione)
-        connessa = list(connessa)
+    def getnNeighboors(self, localizzazione):
         result = []
-        for n in connessa:
-            vicini_list = []
-            vicini = self._grafo.neighbors(n)
-            for v in vicini:
-                vicini_list.append((v, self._grafo[n][v]["weight"]))
-            result.append((n, vicini_list))
+        vicini = self._grafo.neighbors(localizzazione)
+        for v in vicini:
+            result.append((v, self._grafo[localizzazione][v]["weight"]))
         return result
+
+    def handlePath(self, loc):
+        self._bestPath = []
+        self._bestSol = 0
+        self._ricorsione(loc, [])
+
+        return self._bestPath, self._bestSol
+
+    def _ricorsione(self, partenza, parziale):
+        peso_parziale = self.calocaPesoParziale(parziale)
+        if peso_parziale > self._bestSol:
+            self._bestSol = peso_parziale
+            self._bestPath = copy.deepcopy(parziale)
+
+        vicini = self._grafo.neighbors(partenza)
+        for v in vicini:
+            if self.filtroArchi(partenza, v, parziale):
+                peso = self._grafo[partenza][v]["weight"]
+                parziale.append((partenza, v, peso))
+                self._ricorsione(v, parziale)
+                parziale.pop()
+        return
+
+    def filtroArchi(self, u, v, parziale):
+        for e in parziale:
+            if e[:2] == (u, v) or e[:2] == (v, u):
+                return False
+        return True
+
+    def calocaPesoParziale(self, parziale):
+        pesoTot = 0
+        for e in parziale:
+            pesoTot += e[2]
+        return pesoTot

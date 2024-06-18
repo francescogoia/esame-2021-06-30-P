@@ -31,18 +31,22 @@ class Controller:
             self._choiceLocation = e.control.data
 
     def handle_statistiche(self, e):
-        result = self._model.getConnesse(self._choiceLocation)
+        result = self._model.getnNeighboors(self._choiceLocation)
         self._view.txt_result.controls.clear()
-        for r in result:
-            self._view.txt_result.controls.append(ft.Text(f"Adiacenti a {r[0]}:"))
-            for v in r[1]:
-                self._view.txt_result.controls.append(ft.Text(f"{v[0]} : {v[1]}"))
+        self._view.txt_result.controls.append(ft.Text(f"Adiacenti a {self._choiceLocation}:"))
+        for v in result:
+            self._view.txt_result.controls.append(ft.Text(f"{v[0]} : {v[1]}"))
         self._view.update_page()
 
 
 
     def handle_cammino(self, e):
-        pass
+        cammino, peso_cammino = self._model.handlePath(self._choiceLocation)
+        self._view.txt_result.controls.clear()
+        self._view.txt_result.controls.append(ft.Text(f"Cammino che parte da {self._choiceLocation} con peso: {peso_cammino}"))
+        for c in cammino:
+            self._view.txt_result.controls.append(ft.Text(f"{c}"))
+        self._view.update_page()
 
 
 
